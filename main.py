@@ -1,5 +1,6 @@
 import requests
 import datetime
+import pandas
 
 API_KEY = '80996256c1fb47b98033a5ec76b2b377'
 URL = ('https://newsapi.org/v2/top-headlines?')
@@ -98,16 +99,32 @@ if __name__ == "__main__":
         validSearchBy = ("cateogory", "country")
         searchBy = input("Would you like to search by cateogory or country? ").lower()
         if searchBy not in validSearchBy:
-            print("Invalid input please enter \"cateogory\" or \"country\" \n")
+            print("Invalid input please enter \"cateogory\" or \"country\". \n")
         else:
             break
     
     country = input("Enter your desired region for your news. \n")
-    category = input("What cateogory would you like? \n")
-    getArtcilesByCategory(category)
+    if searchBy == "cateogory":
+        while True:
+            validCateogories = ("business", "entertainment", "general", "health", "science", "technology")
+            category = input("What cateogory would you like? \n").lower()
+            if category not in validCateogories:
+                print("Invalid input please enter \"business\", \"entertainment\", \"general\", \"health\", \"science\", or \"technology\". \n")
+            else:
+                break
+        if category == "tech":
+            category = "technology"
+        while True:
+            validInputs = ("yes", "y", "no", "n")
+            inputs = input("The default news region is U.S would you like to change it?")
+            if inputs not in validInputs:
+                print("Invalid input please enter \"yes\" or \"no\"")
+            else:
+                break
+        getArtcilesByCategory(category)
     #print(f"Getting news for {category}...\n")
     #selection
-    print(f"Successfully retrieved top {category} headlines")
+        print(f"Successfully retrieved top {category} headlines")
 
     currenttime = datetime.datetime.now()
     date = currenttime.strftime("%m-%d")
