@@ -95,7 +95,15 @@ if __name__ == "__main__":
             getArtcilesByCategory(category=category, country=region)
             print()
             print(f"Successfully retrieved top {category} headlines")
-    country = input("Enter your desired region for your news. \n")
+    while True:
+        country = input("Enter your desired region for your news. \n")
+        df = pd.read_excel("Country codes.xlsx")
+        if region.lower() not in map(str.lower, df.values.flatten()):
+            print("Invalid input please enter a valid country code or country if you arent shure of the country code please use this chart https://drive.google.com/file/d/10pvX9LGwFeEPzCF11TSX0FOH5K3TbtX9/view?usp=sharing")
+            print("NOTE: Not all countries are supported please view the chart to check for the supported countries \n")
+        else:
+            break
+
     #print(f"Getting news for {category}...\n")
     #selection
     print(f"Successfully retrieved top {category} headlines")
