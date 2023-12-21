@@ -23,14 +23,6 @@ def getArtcilesByCategory(category, country):
     }
     return getArticles(queryparams)
 
-def getArtcilesByQuery(query):
-    queryparams = {
-        "q": query,
-        "sortBy": "top",
-        "apiKey": API_KEY
-    }
-    return getArticles(queryparams)
-
 def getArticles(params):
     response = requests.get(URL, params=params)
 
@@ -103,14 +95,14 @@ if __name__ == "__main__":
             print("NOTE: Not all countries are supported please view the chart to check for the supported countries \n")
         else:
             break
-
+    getArtcilesByCountry(country)
     #print(f"Getting news for {category}...\n")
     #selection
     print(f"Successfully retrieved top {category} headlines")
 
     currenttime = datetime.datetime.now()
     date = currenttime.strftime("%m-%d")
-    if date == "12-20":
+    if date == "12-23":
         print("----------------------------------------------")
         print()
         print("Its 23rd of december!")
