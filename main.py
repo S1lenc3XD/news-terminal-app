@@ -49,7 +49,7 @@ def getArticles(params):
 if __name__ == "__main__":
     while True:
         validSearchBy = ("cateogory", "country")
-        searchBy = input("Would you like to search by cateogory or country? ").lower()
+        searchBy = input("Would you like to search by cateogory or country? \n").lower()
         if searchBy not in validSearchBy:
             print("Invalid input please enter \"cateogory\" or \"country\" \n")
         else:
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     
     if searchBy == "cateogory":
         while True:
-            validCateogories = ("business", "entertainment", "general", "health", "science", "technology")
+            validCateogories = ("business", "entertainment", "general", "health", "science", "technology", "tech")
             category = input("What cateogory would you like? \n").lower()
             if category not in validCateogories:
                 print("Invalid input please enter \"business\", \"entertainment\", \"general\", \"health\", \"science\", or \"technology\". \n")
@@ -69,9 +69,9 @@ if __name__ == "__main__":
 
         while True:
             validInputs = ("yes", "y", "no", "n")
-            inputs = input("The default news region is U.S would you like to change it?")
+            inputs = input("The default news region is U.S would you like to change it? \n")
             if inputs not in validInputs:
-                print("Invalid input please enter \"yes\" or \"no\"")
+                print("Invalid input please enter \"yes\" or \"no\" \n")
             else:
                 break
         if inputs == "y" or inputs == "yes":
@@ -80,6 +80,7 @@ if __name__ == "__main__":
                 df = pd.read_excel("Country codes.xlsx")
                 if region.lower() not in map(str.lower, df.values.flatten()):
                     print("Invalid input please enter a valid country code or country if you arent shure of the country code please use this chart https://drive.google.com/file/d/10pvX9LGwFeEPzCF11TSX0FOH5K3TbtX9/view?usp=sharing")
+                    print("NOTE: Not all countries are supported please view the chart to check for the supported countries \n")
                 else:
                     break
             print(f"Getting news for {category} in {region}...")
@@ -101,7 +102,8 @@ if __name__ == "__main__":
 
     currenttime = datetime.datetime.now()
     date = currenttime.strftime("%m-%d")
-    if date == "12-23":
+    if date == "12-20":
+        print("----------------------------------------------")
         print()
         print("Its 23rd of december!")
         print("Happy birthday!")
