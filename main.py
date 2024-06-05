@@ -2,7 +2,7 @@ import requests
 import datetime
 import pandas as pd
 
-API_KEY = '80996256c1fb47b98033a5ec76b2b377'
+API_KEY = 'YOUR_API_KEY'
 URL = ('https://newsapi.org/v2/top-headlines?')
 
 def getArtcilesByCountry(country):
