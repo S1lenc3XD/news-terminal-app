@@ -1,4 +1,4 @@
-# News Fetcher
+# News Terminal CLI App
 
 This is a Python script to fetch the latest news headlines based on country or category using the NewsAPI.
 
@@ -23,7 +23,7 @@ This is a Python script to fetch the latest news headlines based on country or c
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/s1lenc3xd/news-terminal-app.git
+    git clone https://github.com/S1lenc3XD/news-terminal-app.git
     cd news-fetcher
     ```
 
